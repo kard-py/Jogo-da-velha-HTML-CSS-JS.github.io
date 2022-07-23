@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <style>
+      html,
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 5px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        color: white;
+        flex-direction: column;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background-color: black;
+        height: 550px;
+        width: 550px;
+        display: grid;
+        grid-gap: 10px;
+        grid-template: 1fr 1fr 1fr/1fr 1fr 1fr;
+      }
+      .container > div {
+        background-color: #7159c1;
+
+        font-size: 115pt;
+        font-family: sans-serif;
+        text-align: center;
+        cursor: pointer;
+        user-select: none;
+      }
+      .container > div:hover {
+        opacity: 70%;
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="span">Vez Do Jogador: <span class="player"></span></h1>
+
+    <div class="container">
+      <div class="div1"></div>
+      <div class="div2"></div>
+      <div class="div3"></div>
+      <div class="div4"></div>
+      <div class="div5"></div>
+      <div class="div6"></div>
+      <div class="div7"></div>
+      <div class="div8"></div>
+      <div class="div9"></div>
+    </div>
+
+    <script>
+      var divs = [];
+
+      divs.push(document.querySelector(".div1"));
+      divs.push(document.querySelector(".div2"));
+      divs.push(document.querySelector(".div3"));
+      divs.push(document.querySelector(".div4"));
+      divs.push(document.querySelector(".div5"));
+      divs.push(document.querySelector(".div6"));
+      divs.push(document.querySelector(".div7"));
+      divs.push(document.querySelector(".div8"));
+      divs.push(document.querySelector(".div9"));
+
+      var player = document.querySelector(".player");
+      var title = document.querySelector(".span");
+
+      var jogador = "X";
+
+      var vencendor = "";
+
+      player.innerHTML = jogador;
+
+      function changePlayer(jogador) {
+        if (jogador === "X") {
+          jogador = "0";
+        } else if (jogador === "0") {
+          jogador = "X";
+        }
+
+        player.innerHTML = jogador;
+        return jogador;
+      }
+
+      var vitoria = function (divs) {
+        if (
+          divs[0].innerHTML == divs[1].innerHTML &&
+          divs[1].innerHTML == divs[2].innerHTML &&
+          divs[0].innerHTML != ""
+        ) {
+          divs[0].style.background = "green";
+          divs[1].style.background = "green";
+          divs[2].style.background = "green";
+          vencendor = divs[0].innerHTML;
+          title.innerHTML = `O jogador ${divs[0].innerHTML} Ganhou !! Aperte f5 para recomeçar`;
+          return vencendor;
+        } else if (
+          divs[3].innerHTML == divs[4].innerHTML &&
+          divs[4].innerHTML == divs[5].innerHTML &&
+          divs[3].innerHTML != ""
+        ) {
+          divs[3].style.background = "green";
+          divs[4].style.background = "green";
+          divs[5].style.background = "green";
+          vencendor = divs[3].innerHTML;
+          title.innerHTML = `O jogador ${divs[0].innerHTML} Ganhou !! Aperte f5 para recomeçar`;
+          return vencendor;
+        } else if (
+          divs[6].innerHTML == divs[7].innerHTML &&
+          divs[7].innerHTML == divs[8].innerHTML &&
+          divs[6].innerHTML != ""
+        ) {
+          divs[6].style.background = "green";
+          divs[7].style.background = "green";
+          divs[8].style.background = "green";
+          vencendor = divs[6].innerHTML;
+          title.innerHTML = `O jogador ${divs[0].innerHTML} Ganhou !! Aperte f5 para recomeçar`;
+          return vencendor;
+        } else if (
+          divs[0].innerHTML == divs[3].innerHTML &&
+          divs[3].innerHTML == divs[6].innerHTML &&
+          divs[0].innerHTML != ""
+        ) {
+          divs[0].style.background = "green";
+          divs[3].style.background = "green";
+          divs[6].style.background = "green";
+          vencendor = divs[0].innerHTML;
+          title.innerHTML = `O jogador ${divs[0].innerHTML} Ganhou !! Aperte f5 para recomeçar`;
+          return vencendor;
+        } else if (
+          divs[1].innerHTML == divs[4].innerHTML &&
+          divs[4].innerHTML == divs[7].innerHTML &&
+          divs[1].innerHTML != ""
+        ) {
+          divs[1].style.background = "green";
+          divs[4].style.background = "green";
+          divs[7].style.background = "green";
+          vencendor = divs[1].innerHTML;
+          title.innerHTML = `O jogador ${divs[0].innerHTML} Ganhou !! Aperte f5 para recomeçar`;
+          return vencendor;
+        } else if (
+          divs[2].innerHTML == divs[5].innerHTML &&
+          divs[5].innerHTML == divs[8].innerHTML &&
+          divs[2].innerHTML != ""
+        ) {
+          divs[2].style.background = "green";
+          divs[5].style.background = "green";
+          divs[8].style.background = "green";
+          vencendor = divs[1].innerHTML;
+          title.innerHTML = `O jogador ${divs[0].innerHTML} Ganhou !! Aperte f5 para recomeçar`;
+          return vencendor;
+        } else if (
+          divs[0].innerHTML == divs[4].innerHTML &&
+          divs[4].innerHTML == divs[8].innerHTML &&
+          divs[0].innerHTML != ""
+        ) {
+          divs[0].style.background = "green";
+          divs[4].style.background = "green";
+          divs[8].style.background = "green";
+          vencendor = divs[0].innerHTML;
+          title.innerHTML = `O jogador ${divs[0].innerHTML} Ganhou !! Aperte f5 para recomeçar`;
+          return vencendor;
+        } else if (
+          divs[2].innerHTML == divs[4].innerHTML &&
+          divs[4].innerHTML == divs[6].innerHTML &&
+          divs[2].innerHTML != ""
+        ) {
+          divs[2].style.background = "green";
+          divs[4].style.background = "green";
+          divs[6].style.background = "green";
+          vencendor = divs[2].innerHTML;
+          title.innerHTML = `O jogador ${divs[0].innerHTML} Ganhou !! Aperte f5 para recomeçar`;
+          return vencendor;
+        } else if (
+          divs[0].innerHTML !== "" &&
+          divs[1].innerHTML !== "" &&
+          divs[2].innerHTML !== "" &&
+          divs[3].innerHTML !== "" &&
+          divs[4].innerHTML !== "" &&
+          divs[5].innerHTML !== "" &&
+          divs[6].innerHTML !== "" &&
+          divs[7].innerHTML !== "" &&
+          divs[8].innerHTML !== ""
+        ) {
+          vencendor = "Empate";
+          title.innerHTML = `O jogo Empatou !! Aperte f5 para recomeçar`;
+          return vencendor;
+        }
+
+        return "";
+      };
+      for (let i = 0; i < divs.length; i++) {
+        const element = divs[i];
+        element.addEventListener("click", (e) => {
+          if (vencendor !== "") {
+          } else if (e.path[0].innerHTML == "" && vencendor == "") {
+            e.path[0].innerHTML = jogador;
+            jogador = changePlayer(jogador);
+            vencedor = vitoria(divs);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
